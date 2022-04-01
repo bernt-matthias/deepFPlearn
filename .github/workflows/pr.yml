@@ -9,7 +9,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: ricardochaves/python-lint@v1.4.0
-
+      with:
+        python-root-list: "dfpl tests"
   test:
     runs-on: ubuntu-latest
     steps:
@@ -17,6 +18,6 @@ jobs:
     - name: install pytest
       run: pip install pytest
     - name: install package
-      run: pip install .
+      run: pip install -r requirements.txt .
     - name: run tests
       run: pytest tests
