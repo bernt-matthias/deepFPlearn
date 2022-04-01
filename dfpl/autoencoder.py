@@ -16,6 +16,8 @@ from dfpl import options
 from dfpl import history as ht
 from dfpl import settings
 
+print("TETS")
+
 
 def define_ac_model(
         input_size: int = 2048,
