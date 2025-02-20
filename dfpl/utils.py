@@ -95,9 +95,11 @@ def createArgsFromJson(jsonFile: str):
                     value = cli_value  # Override JSON value with command-line value
 
             # Append the argument and its value to the list
-            if key == "extra_metrics" and isinstance(value, list):
+            if isinstance(value, list):
                 arguments.append(cli_arg_key)
                 arguments.extend(value)
+            elif isinstance(value, bool) and value:
+                arguments.append(cli_arg_key)
             else:
                 arguments.extend([cli_arg_key, str(value)])
 
